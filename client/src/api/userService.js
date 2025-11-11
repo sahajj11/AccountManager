@@ -9,7 +9,7 @@ export const getUsers=()=>{
 // A function to save the user array back to local storage
 export const saveUsers=(users)=>{
     localStorage.setItem('users',JSON.stringify(users))
-}
+} 
 
 // A function to get the currently logged-in user from storage.
 export const getCurrentUser=()=>{
@@ -30,12 +30,7 @@ export const getCurrentUser=()=>{
 }
 
 
-/**
- * Updates a user's details in the mock storage.
- * @param {string} email - The unique identifier of the user to update.
- * @param {object} updatedData - The fields to update (e.g., { name: 'New Name' }).
- * @returns {object|null} The updated user object, or null if not found.
- */
+// A function to update the user's details.
 export const updateUserDetails = (email, updatedData) => {
     const users = getUsers();
     const index = users.findIndex(u => u.email === email);

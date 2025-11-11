@@ -10,17 +10,19 @@ import ProtectedRoute from './components/common/ProtectedRoute'
 import AccountPage from './pages/AccountPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
+     {/* Provide global authentication state to the app */}
       <AuthProvider>
         <BrowserRouter>
-        
+          {/* Define routes for the app */}
           <Routes>
+            {/* Public routes */}
             <Route path='/' element={<LoginPage />} />
             <Route path='/register' element={<RegistrationPage />} />
 
+            {/* Protected route: only accessible if user is logged in */}
             <Route path="/account" element={<ProtectedRoute>
               <AccountPage />
             </ProtectedRoute>} />

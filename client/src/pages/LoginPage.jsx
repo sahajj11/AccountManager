@@ -11,7 +11,7 @@ const LoginPage = () => {
 
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       
-      {/* Centered Form Card: White background, subtle shadow, rounded corners */}
+      {/* Centered Form Card */}
       <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
         <LoginForm />
       </div>

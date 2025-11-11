@@ -1,20 +1,15 @@
-// src/components/account/AccountDetailsForm.js
-
 import React, { useState } from 'react';
 import { useAuthContext } from '../context/AuthContext';
 import { PenLine, SquarePen, X } from "lucide-react";
 
-// Assuming you have an Icon component for simplicity. If not, use '✏️' or install react-icons/heroicons.
-// const PencilIcon = (props) => <svg {...props}>...</svg>; 
-
 const AccountDetailsForm = ({ initialData }) => {
-    // Local state for form inputs (Email is now mutable)
+    // Local state for form inputs 
     const [name, setName] = useState(initialData.name || '');
     const [email, setEmail] = useState(initialData.email || ''); 
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     
-    // State to manage edit mode for fields (NEW UX)
+    // State to manage edit mode for fields 
     const [isEditingName, setIsEditingName] = useState(false);
     const [isEditingEmail, setIsEditingEmail] = useState(false);
     
@@ -24,7 +19,6 @@ const AccountDetailsForm = ({ initialData }) => {
 
     const { updateAccount } = useAuthContext();
 
-    // Toggle handlers
     const toggleEditName = () => setIsEditingName(!isEditingName);
     const toggleEditEmail = () => setIsEditingEmail(!isEditingEmail);
 
@@ -36,11 +30,11 @@ const AccountDetailsForm = ({ initialData }) => {
         let updatedFields = {};
         let errors = [];
 
-        // 1. Validate and track Name Change
+        //  Validate and track Name Change
         if (name.trim() === '') { errors.push('Name cannot be empty.'); }
         if (name !== initialData.name) { updatedFields.name = name; }
         
-        // 2. Validate and track Email Change
+        //  Validate and track Email Change
         if (email !== initialData.email) {
             // Basic email format check
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -50,7 +44,7 @@ const AccountDetailsForm = ({ initialData }) => {
             }
         }
 
-        // 3. Validate Password Change
+        //  Validate Password Change
         if (newPassword || confirmPassword) {
             if (newPassword.length < 6) { errors.push('New password must be at least 6 characters.'); }
             if (newPassword !== confirmPassword) { errors.push('Passwords do not match.'); }
@@ -71,12 +65,11 @@ const AccountDetailsForm = ({ initialData }) => {
             return;
         }
 
-        // 4. Call the update service
+        
         const result = await updateAccount(updatedFields);
 
         if (result && typeof result !== 'string') {
             setStatus({ type: 'success', message: 'Account successfully updated!' });
-            // Exit edit modes and clear password fields on success
             setIsEditingName(false);
             setIsEditingEmail(false);
             setNewPassword('');
@@ -88,7 +81,7 @@ const AccountDetailsForm = ({ initialData }) => {
         setIsSubmitting(false);
     };
 
-    // Helper for status classes (as before)
+    // Helper for status classes
     const getStatusClasses = () => {
         if (status.type === 'success') { return 'bg-green-100 text-green-700 border border-green-300'; }
         if (status.type === 'error') { return 'bg-red-100 text-red-700 border border-red-300'; }
@@ -99,8 +92,8 @@ const AccountDetailsForm = ({ initialData }) => {
     const getInputClasses = (isEditing) => 
         `w-full p-3 text-gray-900 border rounded-lg shadow-sm focus:outline-none transition duration-150 ${
             isEditing
-                ? 'bg-white border-indigo-500 focus:ring-2 focus:ring-indigo-500' // Editable state
-                : 'bg-gray-50 border-gray-200 cursor-default text-gray-600'      // Read-only state
+                ? 'bg-white border-indigo-500 focus:ring-2 focus:ring-indigo-500' 
+                : 'bg-gray-50 border-gray-200 cursor-default text-gray-600'      
         }`;
 
     // Helper for the edit button icon
@@ -127,7 +120,7 @@ const AccountDetailsForm = ({ initialData }) => {
                 </div>
             )}
 
-            {/* Email Field (Editable) */}
+            {/* Email Field */}
             <div className="relative">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                     Email Address
@@ -144,7 +137,7 @@ const AccountDetailsForm = ({ initialData }) => {
                 <EditIcon isEditing={isEditingEmail} onClick={toggleEditEmail} />
             </div>
 
-            {/* Name Field (Editable) */}
+            {/* Name Field */}
             <div className="relative">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Full Name
@@ -167,7 +160,7 @@ const AccountDetailsForm = ({ initialData }) => {
                 Change Password (Optional)
             </h4>
 
-            {/* New Password Field (No edit mode needed, always functional) */}
+            {/* New Password Field */}
             <div>
                 <label htmlFor="new-password" className="block text-sm font-medium text-gray-700 mb-1">
                     New Password
@@ -177,7 +170,7 @@ const AccountDetailsForm = ({ initialData }) => {
                     type="password"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
-                    className={getInputClasses(true)} // Always editable style
+                    className={getInputClasses(true)} 
                     placeholder="Leave blank to keep current password"
                 />
             </div>

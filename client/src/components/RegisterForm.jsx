@@ -1,11 +1,9 @@
-// src/components/auth/RegisterForm.js
-
 import React, { useState } from 'react';
-
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 
 const RegisterForm = () => {
+  // Local state for form inputs 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,7 +30,6 @@ const RegisterForm = () => {
       // Success: User is registered and auto-logged in
       navigate('/account'); 
     } else {
-      // Error message from the service layer (e.g., 'User already exists')
       setError(result || 'Registration failed. Please try again.'); 
     }
   };
@@ -61,7 +58,6 @@ const RegisterForm = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            // Light theme input styles
             className="w-full p-3 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
             placeholder="John Doe"
             required
@@ -78,7 +74,6 @@ const RegisterForm = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            // Light theme input styles
             className="w-full p-3 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
             placeholder="you@example.com"
             required
@@ -95,7 +90,6 @@ const RegisterForm = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            // Light theme input styles
             className="w-full p-3 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
             placeholder="••••••••"
             required

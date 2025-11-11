@@ -23,7 +23,7 @@ export const useAuth=()=>{
     const handleLogin=async(email,password)=>{
 
         setIsLoading(true)
-        const result=await login(email,password)
+        const result=await login(email,password) // Call login API
 
         if (result && typeof result !== 'string'){
             setUser(result)
@@ -38,7 +38,7 @@ export const useAuth=()=>{
     const handleRegister=async(email,password)=>{
 
         setIsLoading(true)
-        const result=await register(email,password)
+        const result=await register(email,password) // Call register API
 
         if (result && typeof result !== 'string'){
             setUser(result)
@@ -51,7 +51,7 @@ export const useAuth=()=>{
     }
 
     const handleLogout=()=>{
-        logout()
+        logout() // Call logout API / clear session
         setUser(null)
     }
 
@@ -62,18 +62,16 @@ export const useAuth=()=>{
 
     setIsLoading(true);
     
-    // 1. Call the business logic layer (accountService) to persist the change
-    const updatedUser = updateUserDetails(user.email, updatedData); 
+    const updatedUser = updateUserDetails(user.email, updatedData);  // Update user details
 
     if (updatedUser) {
-        // 2. Update the local React state (which flows to AuthContext)
         setUser(updatedUser); 
         setIsLoading(false);
         return updatedUser; // Success
     }
 
     setIsLoading(false);
-    return "Failed to update account details."; // Failure
+    return "Failed to update account details."; 
   };
 
 

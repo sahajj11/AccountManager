@@ -1,11 +1,9 @@
-// src/components/auth/LoginForm.js
-
 import React, { useState } from 'react';
-
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 
 const LoginForm = () => {
+  // Local state for form inputs 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -27,13 +25,12 @@ const LoginForm = () => {
     if (success) {
       navigate('/account'); 
     } else {
-      // Note: In a real app, keep this message generic for security
       setError('Invalid email or password.'); 
     }
   };
 
   return (
-    <div className="p-2"> {/* Inner padding */}
+    <div className="p-2"> 
       <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
         Welcome Back
       </h2>
@@ -56,7 +53,6 @@ const LoginForm = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            // Light theme input styles: white background, gray border
             className="w-full p-3 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
             placeholder="you@example.com"
             required
@@ -73,7 +69,6 @@ const LoginForm = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            // Light theme input styles
             className="w-full p-3 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
             placeholder="••••••••"
             required

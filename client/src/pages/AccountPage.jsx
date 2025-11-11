@@ -12,7 +12,7 @@ const AccountPage = () => {
    <div className="min-h-screen bg-gray-50">
       <AppNavbar />
       
-      {/* Container for main page content, using white theme styling */}
+      {/* Container for main page content */}
       <div className="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-extrabold text-gray-900 mb-6">
           Account Settings
@@ -32,7 +32,6 @@ const AccountPage = () => {
 
           {/* Account Details Form */}
           <div className="py-6">
-            {/* 3. Pass the user object as the required initialData prop */}
             <AccountForm initialData={user} />
           </div>
 

@@ -1,5 +1,3 @@
-// src/components/common/Navbar.js
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
@@ -11,12 +9,12 @@ const AppNavbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout(); // Calls the central logout function (which clears local storage and state)
+    logout(); 
     navigate('/login'); // Redirect to the login page after logging out
   };
 
   return (
-    // Top-level container: White theme, border bottom, shadow for elevation
+    
     <nav className=" shadow-md bg-gradient-to-r from-indigo-700 to-violet-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -24,7 +22,7 @@ const AppNavbar = () => {
           {/* Logo/App Name */}
           <div className="flex-shrink-0">
             <Link to="/account" className="text-2xl font-bold text-white">
-              AccountManager Pro
+              Account Manager
             </Link>
           </div>
 
