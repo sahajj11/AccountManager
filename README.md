@@ -10,7 +10,7 @@ It provides the full user lifecycle: secure registration, login, protected routi
 
 ## 🌐 Live Demo
 
-- **Live:**(https://accountmanagerrr.onrender.com///) 
+- **Live:**(https://accountmanagerrr.onrender.com) 
 
 ---
 
