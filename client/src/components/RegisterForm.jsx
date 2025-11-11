@@ -59,7 +59,7 @@ const RegisterForm = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full p-3 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
-            placeholder="John Doe"
+            placeholder="Parth Shah"
             required
           />
         </div>
