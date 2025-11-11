@@ -1,8 +1,8 @@
-# 🚀 AccountManager Pro: User Identity & Account Management System
+# 🚀 Account Manager: User Identity & Account Management System
 
 ## 🌟 Project Overview
 
-**AccountManager Pro (AMP)** is a clean, modern, single-page application built to demonstrate best practices in **User Authentication and State Management** in a React environment.
+**Account Manager** is a clean, modern, single-page application built to demonstrate best practices in **User Authentication and State Management** in a React environment.
 
 It provides the full user lifecycle: secure registration, login, protected routing, and a polished account management portal where users can update their details with an intuitive editing experience.
 
@@ -16,7 +16,6 @@ This project showcases a strong understanding of modern React architecture and f
   * **Centralized State Management:** Utilizes the **React Context API** and a custom **`useAuth` hook** to manage global user state, loading, and authentication actions centrally.
   * **Protected Routing:** Uses a custom `<ProtectedRoute />` component to enforce access control, ensuring authenticated pages are inaccessible to guests.
   * **Account Management Portal:** Features a clean interface for users to update their **Name, Email, and Password**.
-  * **Enhanced UX:** Implements an **"edit-on-click"** design pattern on the profile form, ensuring fields are read-only by default until explicitly enabled by the user.
   * **Separation of Concerns (SoC):** Strict layer division (Presentation, State Logic, and Service/API) for a highly maintainable codebase.
 
 -----
@@ -38,11 +37,11 @@ The project structure is organized into three distinct layers to ensure scalabil
 
 | Directory | Layer | Purpose |
 | :--- | :--- | :--- |
-| `src/api` | **Service/Business Logic** | Contains mock API functions (`authService.js`, `accountService.js`) responsible for fetching, saving, and updating data (simulated with `localStorage`). |
+| `src/api` | **Service/Business Logic** | Contains mock API functions (`authService.js`, `userService.js`) responsible for fetching, saving, and updating data (simulated with `localStorage`). |
 | `src/hooks` | **State Logic Layer** | Contains the core `useAuth.js` custom hook, which encapsulates all authentication and state management logic. |
 | `src/context`| **Global State** | Contains `AuthContext.js`, which exposes the authentication state and actions globally to the rest of the application. |
-| `src/pages` | **Views/Containers** | Top-level page components (`LoginPage`, `AccountPage`). |
-| `src/components`| **Presentation/UI** | Reusable UI components (`LoginForm`, `Navbar`, `AccountDetailsForm`). |
+| `src/pages` | **Views/Containers** | Top-level page components (`LoginPage`,`RegistrationPage`, `AccountPage`). |
+| `src/components`| **Presentation/UI** | Reusable UI components (`LoginForm`,`Footer`, `Navbar`, `AccountDetailsForm`). |
 
 -----
 
@@ -54,7 +53,7 @@ Follow these steps to get the project running locally:
 
     ```bash
     git clone [your-repository-url]
-    cd account-manager-pro
+    cd accountmanager
     ```
 
 2.  **Install Dependencies:**
@@ -68,7 +67,7 @@ Follow these steps to get the project running locally:
 3.  **Run the Application:**
 
     ```bash
-    npm start
+    npm run dev
     # or
     yarn start
     ```
