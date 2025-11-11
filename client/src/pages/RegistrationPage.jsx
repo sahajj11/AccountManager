@@ -7,7 +7,7 @@ const RegistrationPage = () => {
   return (
     <>
     <Navbar />
-    
+
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       
       {/* Centered Form Card: White background, subtle shadow, rounded corners */}

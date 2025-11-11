@@ -105,7 +105,7 @@ const RegisterForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white font-semibold p-3 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 disabled:opacity-50"
+          className="w-full cursor-pointer bg-indigo-600 text-white font-semibold p-3 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 disabled:opacity-50"
           disabled={isLoading}
         >
           {isLoading ? 'Registering...' : 'Sign Up'}
